@@ -15,10 +15,25 @@ If p[i] does not appear in r, res[i] is '/'.
 If p[i] appears in r but not in the i-th position, and certain conditions regarding the number and position of occurrences are met, res[i] is '/', otherwise, it is '|'.
 The output is written to stdout for each word comparison in the specified format. The input may also include commands to insert new words at the beginning or end of the permissible word set.
 
-When the program reads the "+stampa_filtrate" command during a game, it should generate output that, in lexicographical order, represents the set of permissible words compatible with the learned constraints up to that point in the game, with each word on a new line. The learned constraints include, for each symbol:
+When the program reads the "+stampa_filtrate" command during a game, it should generate output that, in lexicographical order, represents the set of permissible words compatible with the learned constraints up to that point in the game, with each word on a new line.
 
-- Whether the symbol belongs to r.
-- Positions where the symbol must appear in r.
-- Positions where the symbol cannot appear in r.
-- The minimum number of times the symbol appears in r.
-- The exact number of times the symbol appears in r.
+# My implementation
+
+My implemantation uses a red black tree to keep track of the persmissibles worlds and for each game an ordered dynamic array that contains all the words that are compatible with the current constraints. Each time a new word is inserted, a struct that contains all the information given by the costrains is updated. Whenever the player wants to print all the words compatible with the constrains, a cycle updates the dynamic array and prints the correct words at the same time, using the information contained in the constrains struct.
+
+# How to run
+
+Compile the program:
+'''
+gcc script.c
+'''
+
+run the program with a testcase:
+'''
+a.out < open_testcases/test1.txt > out.txt
+'''
+
+check if the output is correct:
+'''
+diff out.txt open_testcases/test1.output.txt
+'''
