@@ -24,16 +24,16 @@ My implemantation uses a red black tree to keep track of the persmissibles world
 # How to run
 
 Compile the program:
-'''
+```
 gcc script.c
-'''
+```
 
 run the program with a testcase:
-'''
+```
 a.out < open_testcases/test1.txt > out.txt
-'''
+```
 
 check if the output is correct:
-'''
+```
 diff out.txt open_testcases/test1.output.txt
-'''
+```
